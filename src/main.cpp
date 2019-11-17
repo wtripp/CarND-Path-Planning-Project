@@ -144,22 +144,22 @@ int main() {
             }
               
             // Check left lane
-            if(d < left_boundary) {
+            if(d < left_boundary && d > left_boundary - 4) {
               
               // is car in range 50 m behind or 100 m in front of ego?
               if((check_car_s > car_s && check_car_s - car_s > 100) ||
                  (check_car_s < car_s && check_car_s - car_s < -50)) {
-                free_left == false;
+                free_left = false;
               }
             }
             
-            
-            if(d > right_boundary) {
+            // check right lane
+            if(d > right_boundary && d < right_boundary + 4) {
               
               // is car in range 50 m behind or 100 m in front of ego?
               if((check_car_s > car_s && check_car_s - car_s > 100) ||
                  (check_car_s < car_s && check_car_s - car_s < -50)) {
-                free_right == false;
+                free_right = false;
               }
             }
             
